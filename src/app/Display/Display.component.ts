@@ -25,7 +25,17 @@ export class DisplayComponent extends EzComponent {
     private amounttransfer: number = 0;
 
     @BindValue("display")
-    protected valuee: string = "";
+    private displayy: string = "";
+    @BindValue("display")
+    private valuee: string = "";
+    @BindValue("transfer-dis")
+    private transferr: string = "";
+    @BindValue("display-dep")
+    private depositt: string = "";
+    @BindValue("display-with")
+    private widthh: string = "";
+    @BindValue("balance-result")
+    private balres: string = "";
 
     constructor() {
         super(html, css);
@@ -64,7 +74,7 @@ export class DisplayComponent extends EzComponent {
             EzDialog.popup(
                 this,
                 `Account ${this.createe1} exists`,
-                "Account Info",
+                "Successful",
                 ["Ok"],
                 "btn btn-primary",
             );
@@ -72,14 +82,7 @@ export class DisplayComponent extends EzComponent {
         }
         if (this.createe1 && this.name && this.amountt) {
             this.bank.createAccount(this.createe1, this.amountt);
-            EzDialog.popup(
-                this,
-                `Account ${this.createe1} created`,
-                "Account Info",
-                ["Ok"],
-                "btn btn-primary",
-            );
-            return;
+            this.displayy = `Hi ${this.name}, Your Account ${this.createe1} was succesfully created`;
         } else {
             EzDialog.popup(
                 this,
@@ -145,14 +148,7 @@ export class DisplayComponent extends EzComponent {
         }
         if (this.bank.findAccount(this.depositnum)) {
             this.bank.deposit(this.depositnum, this.depositam);
-            EzDialog.popup(
-                this,
-                `Deposited ${this.depositam}. New balance: ${this.getAccountbalance(this.depositnum)}`,
-                "Successful",
-                ["Ok"],
-                "btn btn-primary",
-            );
-            return;
+            this.depositt = `Deposited ${this.depositam}. New balance: ${this.getAccountbalance(this.depositnum)}`;
         } else {
             EzDialog.popup(
                 this,
@@ -223,14 +219,7 @@ export class DisplayComponent extends EzComponent {
                 return;
             }
             this.bank.withdraw(this.withdrawnum, this.withdrawam);
-            EzDialog.popup(
-                this,
-                `Withdrawn ${this.withdrawam}. New balance: ${this.getAccountbalance(this.withdrawnum)}`,
-                "Successful",
-                ["Ok"],
-                "btn btn-primary",
-            );
-            return;
+            this.widthh = `Withdrawn ${this.withdrawam}. New balance: ${this.getAccountbalance(this.withdrawnum)}`;
         } else {
             EzDialog.popup(
                 this,
@@ -280,14 +269,7 @@ export class DisplayComponent extends EzComponent {
             );
             return;
         } else {
-            EzDialog.popup(
-                this,
-                `Balance for account ${this.checkbal}: ${this.getAccountbalance(this.checkbal)}`,
-                "Successful",
-                ["Ok"],
-                "btn btn-primary",
-            );
-            return;
+            this.balres = `Balance for account ${this.checkbal}: ${this.getAccountbalance(this.checkbal)}`;
         }
     }
 
@@ -359,6 +341,7 @@ export class DisplayComponent extends EzComponent {
                 this.transto,
                 this.amounttransfer,
             );
+            this.transferr = `You successfully transfered ${this.amounttransfer} to ${this.transto}`;
             EzDialog.popup(
                 this,
                 `Amount succesfully transferred to ${this.transto}`,
