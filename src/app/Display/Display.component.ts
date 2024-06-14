@@ -342,14 +342,6 @@ export class DisplayComponent extends EzComponent {
                 this.amounttransfer,
             );
             this.transferr = `You successfully transfered ${this.amounttransfer} to ${this.transto}`;
-            EzDialog.popup(
-                this,
-                `Amount succesfully transferred to ${this.transto}`,
-                "Successful",
-                ["Ok"],
-                "btn btn-primary",
-            );
-            return;
         }
     }
 }
