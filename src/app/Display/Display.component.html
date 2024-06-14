@@ -5,12 +5,18 @@
         <h2>Create Account</h2>
         <form id="create-account-form">
             <label for="create-account-number">Account Number:</label>
-            <input type="text" id="create-account-number" required />
+            <input
+                type="number"
+                id="create-account-number"
+                pattern="\d{10}"
+                title="Account number must be exactly 10 digits"
+                required
+            />
             <label for="create-account-holder">Holder Name:</label>
             <input type="text" id="create-account-holder" required />
             <label for="create-account-balance">Initial Deposit:</label>
             <input type="number" id="create-account-balance" required />
-            <button id="submitt" type="submit">Create Account</button>
+            <button id="submitt" type="button">Create Account</button>
         </form>
         <div id="display"></div>
     </div>
@@ -19,10 +25,10 @@
         <h2>Deposit</h2>
         <form id="deposit-form">
             <label for="deposit-account-number">Account Number:</label>
-            <input type="text" id="deposit-account-number" required />
+            <input type="number" id="deposit-account-number" required />
             <label for="deposit-amount">Amount:</label>
             <input type="number" id="deposit-amount" required />
-            <button type="submit">Deposit</button>
+            <button id="depositt" type="button">Deposit</button>
         </form>
     </div>
 
@@ -30,10 +36,10 @@
         <h2>Withdraw</h2>
         <form id="withdraw-form">
             <label for="withdraw-account-number">Account Number:</label>
-            <input type="text" id="withdraw-account-number" required />
+            <input type="number" id="withdraw-account-number" required />
             <label for="withdraw-amount">Amount:</label>
             <input type="number" id="withdraw-amount" required />
-            <button type="submit">Withdraw</button>
+            <button id="withdraww" type="button">Withdraw</button>
         </form>
     </div>
 
@@ -41,8 +47,24 @@
         <h2>Check Balance</h2>
         <form id="balance-form">
             <label for="balance-account-number">Account Number:</label>
-            <input type="text" id="balance-account-number" required />
-            <button id="Check" type="submit">Check Balance</button>
+            <input type="number" id="balance-account-number" required />
+            <button id="Check" type="button">Check Balance</button>
+        </form>
+        <div id="balance-result"></div>
+    </div>
+
+    <div class="section">
+        <h2>Transfer</h2>
+        <form id="balance-form">
+            <label for="transfer-from-account-number"
+                >Account Number from:</label
+            >
+            <input type="number" id="transfer-from-account-number" required />
+            <label for="transfer-to-account-number">Account Number to:</label>
+            <input type="number" id="transfer-to-account-number" required />
+            <label for="withdraw-amount">Amount:</label>
+            <input type="number" id="transfer-amount" required />
+            <button id="transfer" type="button">Transfer</button>
         </form>
         <div id="balance-result"></div>
     </div>
